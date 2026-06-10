@@ -10,18 +10,18 @@ import {
 const router = Router();
 
 // GET - Todos los usuarios
-router.get("/usuarios", getUsers);
+router.get("/users", getUsers);
 
 // GET - Usuario por ID
-router.get("/usuarios/:id", getUserById);
+router.get("/users/:id", getUserById);
 
 // POST - Crear usuario
-router.post("/usuarios", createUser);
+router.post("/users", createUser);
 
 // PUT - Actualizar usuario
-router.put("/usuarios/:id", updateUser);
+router.put("/users/:id", updateUser);
 
 // DELETE - Eliminar usuario
-router.delete("/usuarios/:id", deleteUser);
+router.delete("/users/:id", deleteUser);
 
 export default router;

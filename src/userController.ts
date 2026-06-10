@@ -12,7 +12,7 @@ export const getUserById = (req: Request, res: Response): void => {
   const user = users.find((u) => u.id === id);
 
   if (!user) {
-    res.status(404).json({ mensaje: "Usuario no encontrado" });
+    res.status(404).json({ message: "Usuario no encontrado" });
     return;
   }
 
@@ -21,22 +21,22 @@ export const getUserById = (req: Request, res: Response): void => {
 
 // 3. Crear un nuevo usuario
 export const createUser = (req: Request, res: Response): void => {
-  const { nombre, email, edad } = req.body;
+  const { name, email, age } = req.body;
 
-  if (!nombre || !email || !edad) {
-    res.status(400).json({ mensaje: "Faltan datos obligatorios: nombre, email y edad" });
+  if (!name || !email || !age) {
+    res.status(400).json({ message: "Faltan datos obligatorios: name, email y age" });
     return;
   }
 
-  const nuevoUsuario: User = {
+  const newUser: User = {
     id: users.length + 1,
-    nombre,
+    name,
     email,
-    edad
+    age
   };
 
-  users.push(nuevoUsuario);
-  res.status(201).json(nuevoUsuario);
+  users.push(newUser);
+  res.status(201).json(newUser);
 };
 
 // 4. Actualizar un usuario existente
@@ -45,7 +45,7 @@ export const updateUser = (req: Request, res: Response): void => {
   const index = users.findIndex((u) => u.id === id);
 
   if (index === -1) {
-    res.status(404).json({ mensaje: "Usuario no encontrado" });
+    res.status(404).json({ message: "Usuario no encontrado" });
     return;
   }
 
@@ -59,10 +59,10 @@ export const deleteUser = (req: Request, res: Response): void => {
   const index = users.findIndex((u) => u.id === id);
 
   if (index === -1) {
-    res.status(404).json({ mensaje: "Usuario no encontrado" });
+    res.status(404).json({ message: "Usuario no encontrado" });
     return;
   }
 
   users.splice(index, 1);
-  res.json({ mensaje: "Usuario eliminado correctamente" });
+  res.json({ message: "Usuario eliminado correctamente" });
 };
